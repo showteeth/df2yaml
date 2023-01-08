@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1673162402807.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "64AD736D",
+    "lastKnownWriteTime" : 1673150375,
+    "last_content_update" : 1673150375,
+    "path" : "~/R/learn/COMORAP/test.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "67,0",
+        "scrollLine" : "54"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

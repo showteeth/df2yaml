@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1673162397604.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DD37CDF2",
+    "lastKnownWriteTime" : 1673163446,
+    "last_content_update" : 1673163446,
+    "path" : "~/R/learn/df2yaml/R/utils.R",
+    "project_path" : "R/utils.R",
+    "properties" : {
+        "cursorPosition" : "2,21",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
