@@ -1,6 +1,0 @@
-paras	subcmd	values
-picard	insert_size	MINIMUM_PCT: 0.5
-picard	markdup	CREATE_INDEX: true; VALIDATION_STRINGENCY: SILENT
-preseq		-r 100 -seg_len 100000000
-qualimap		--java-mem-size=20G -outformat HTML
-rseqc		mapq: 30; percentile-floor: 5; percentile-step: 5
