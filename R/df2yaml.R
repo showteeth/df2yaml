@@ -5,9 +5,9 @@
 #' @param val_col The columns used as values, this column can contain key: value pairs.
 #' @param val_sep The separator used to seperate different key:value pairs in \code{val_col}. Default: ";".
 #' @param key_sep The separator used to seperate key and value. Default: ":".
-#' @param out_yaml The output yaml file. Default: NULL (df2yaml.yaml).
+#' @param out_yaml The output yaml file. Default: NULL (string).
 #'
-#' @return NULL (save results to file.)
+#' @return NULL (write YAML) or string (if \code{out_yaml} is NULL).
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom dplyr arrange
@@ -17,8 +17,12 @@
 #' @importFrom rrapply rrapply
 #'
 #' @examples
-df2yaml <- function(df, key_col = c("paras", "subcmd"), val_col = "values",
-                    val_sep = ";", key_sep = ":", out_yaml = NULL) {
+#' library(df2yaml)
+#' test_file <- system.file("extdata", "df2yaml_l3.txt", package = "df2yaml")
+#' test_data <- read.table(file = test_file, header = TRUE, sep = "\t")
+#' df2yaml(df = test_data, key_col = c("paras", "subcmd"), val_col = "values")
+df2yaml2 <- function(df, key_col = c("paras", "subcmd"), val_col = "values",
+                     val_sep = ";", key_sep = ":", out_yaml = NULL) {
   # check columns
   CheckColumns(df, c(key_col, val_col))
   # remove unused columns
@@ -143,8 +147,59 @@ df2yaml <- function(df, key_col = c("paras", "subcmd"), val_col = "values",
     stop("The length of key_col is bigger than 2!")
   }
   if (is.null(out_yaml)) {
-    write(x = df_valid_yaml, file = "df2yaml.yaml")
+    return(df_valid_yaml)
   } else {
     write(x = df_valid_yaml, file = out_yaml)
+  }
+}
+
+#' Convert dataframe to YAML.
+#'
+#' @param df Dataframe.
+#' @param key_col The columns used as keys.
+#' @param val_col The columns used as values, this column can contain key: value pairs.
+#' @param val_sep The separator used to seperate different key:value pairs in \code{val_col}. Default: ";".
+#' @param key_sep The separator used to seperate key and value. Default: ":".
+#' @param rm_quote Logical value, whether to remove single quotes. Default: TRUE.
+#' @param out_yaml Output YAML file. Default: NULL (return string).
+#'
+#' @return NULL (write YAML) or string (if \code{out_yaml} is NULL).
+#' @importFrom magrittr %>%
+#' @importFrom dplyr arrange
+#' @importFrom rlang .data
+#' @importFrom tibble column_to_rownames
+#' @importFrom yaml as.yaml
+#' @importFrom rrapply rrapply
+#' @export
+#'
+#' @examples
+#' library(df2yaml)
+#' test_file <- system.file("extdata", "df2yaml_l3.txt", package = "df2yaml")
+#' test_data <- read.table(file = test_file, header = TRUE, sep = "\t")
+#' df2yaml(df = test_data, key_col = c("paras", "subcmd"), val_col = "values")
+df2yaml <- function(df, key_col, val_col,
+                    val_sep = ";", key_sep = ":", rm_quote = TRUE, out_yaml = NULL) {
+  # split dataframe
+  df_li <- SplitDF(df = df, key_col = key_col, val_col = val_col)
+  final_li <- list()
+  # process the split dataframe
+  for (n in 1:length(df_li)) {
+    n_df <- df_li[[n]]
+    n_li <- rrapply::rrapply(n_df, how = "unmelt")
+    # split the list
+    n_split_li <- ListSplit(li = n_li, val_sep = val_sep, key_sep = key_sep)
+    final_li <- c(final_li, n_split_li)
+  }
+  # convert to dataframe
+  df_yaml <- yaml::as.yaml(final_li)
+  # remove single quote
+  if (rm_quote) {
+    df_yaml <- gsub(pattern = "'", replacement = "", df_yaml)
+  }
+  # save or print
+  if (is.null(out_yaml)) {
+    return(df_yaml)
+  } else {
+    write(x = df_yaml, file = out_yaml)
   }
 }
