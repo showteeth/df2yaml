@@ -30,7 +30,7 @@ CheckColumns <- function(df, col) {
 #' # SplitDF(df = df, key_col = c("c1", "c2", "c3", "c4", "c5"), val_col = "c6")
 SplitDF <- function(df, key_col, val_col) {
   # check columns
-  CheckColumns(df, c(key_col, val_col))
+  # CheckColumns(df, c(key_col, val_col))
   # remove unused columns
   df <- df[c(key_col, val_col)]
 
@@ -39,16 +39,20 @@ SplitDF <- function(df, key_col, val_col) {
   # split dataframe
   df_li <- list()
   df_num <- 1
-  for (co in 2:(length(key_col))) {
-    co_df <- df[df[, key_col[co]] == "", ]
-    if (nrow(co_df) > 0) {
-      co_df[, key_col[co:length(key_col)]] <- NULL
-      df_li[[df_num]] <- co_df
-      df_num <- df_num + 1
-    }
-    df <- df[df[, key_col[co]] != "", ]
-    if (co == length(key_col)) {
-      df_li[[df_num]] <- df
+  if (length(key_col) == 1) {
+    df_li[[1]] <- df
+  } else if (length(key_col) >= 2) {
+    for (co in 2:(length(key_col))) {
+      co_df <- df[df[, key_col[co]] == "", ]
+      if (nrow(co_df) > 0) {
+        co_df[, key_col[co:length(key_col)]] <- NULL
+        df_li[[df_num]] <- co_df
+        df_num <- df_num + 1
+      }
+      df <- df[df[, key_col[co]] != "", ]
+      if (co == length(key_col)) {
+        df_li[[df_num]] <- df
+      }
     }
   }
   return(df_li)

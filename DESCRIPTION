@@ -1,7 +1,7 @@
 Package: df2yaml
 Type: Package
 Title: Convert dataframe to YAML
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: 
     person(given = "Yabing",
            family = "Song",
