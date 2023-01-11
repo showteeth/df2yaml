@@ -15,12 +15,20 @@ multi-level hierarchy.
 
 ## Installation
 
-You can install the released version of `df2yaml` from
-[CRAN](https://CRAN.R-project.org) with:
+`df2yaml` is an R package distributed as part of the
+[CRAN](https://cran.r-project.org/). To install the package, start R and
+enter:
 
 ``` r
-install.packages("df2yaml")
+# install via CRAN
+install.package("df2yaml")
+# install via Github
+# install.package("remotes")   #In case you have not installed it.
+remotes::install_github("showteeth/df2yaml")
 ```
+
+In general, it is **recommended** to install from [Github
+repository](https://github.com/showteeth/df2yaml) (update more timely).
 
 ## Usage
 
