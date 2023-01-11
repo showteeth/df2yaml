@@ -30,7 +30,7 @@ CheckColumns <- function(df, col) {
 #' # SplitDF(df = df, key_col = c("c1", "c2", "c3", "c4", "c5"), val_col = "c6")
 SplitDF <- function(df, key_col, val_col) {
   # check columns
-  # CheckColumns(df, c(key_col, val_col))
+  CheckColumns(df, c(key_col, val_col))
   # remove unused columns
   df <- df[c(key_col, val_col)]
 
