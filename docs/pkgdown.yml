@@ -1,0 +1,10 @@
+pandoc: '2.12'
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  df2yaml: df2yaml.html
+last_built: 2023-01-11T07:24Z
+urls:
+  reference: https://showteeth.github.io/df2yaml//reference
+  article: https://showteeth.github.io/df2yaml//articles
+
