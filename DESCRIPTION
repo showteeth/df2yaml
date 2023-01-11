@@ -20,3 +20,8 @@ Imports:
     yaml,
     magrittr,
     rlang
+Suggests: 
+    rmarkdown,
+    prettydoc,
+    knitr
+VignetteBuilder: knitr

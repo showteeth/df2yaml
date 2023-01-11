@@ -3,3 +3,4 @@ inst/doc
 .Rbuildignore
 .Rproj*
 .Rproj.user
+docs

@@ -1,0 +1,7 @@
+destination: docs
+
+url: https://showteeth.github.io/df2yaml/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo

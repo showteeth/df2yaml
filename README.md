@@ -8,8 +8,10 @@
 [![CODE\_SIZE](https://img.shields.io/github/languages/code-size/showteeth/df2yaml.svg)](https://github.com/showteeth/df2yaml)
 [![devel\_version](https://img.shields.io/badge/devel%20version-0.2.0-blue.svg)](https://github.com/showteeth/df2yaml)
 
-The goal of `df2yaml` is to convert dataframe to YAML. It now supports
-hierarchy more than three levels.
+The goal of `df2yaml` is simplify the process of converting dataframe to
+YAML. The dataframe with multiple key columns and one value column (this
+column can also contain key-value pair(s)) will be converted to
+multi-level hierarchy.
 
 ## Installation
 
