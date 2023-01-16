@@ -6,28 +6,7 @@ CheckColumns <- function(df, col) {
   }
 }
 
-#' Split dataframe.
-#'
-#' @param df Dataframe.
-#' @param key_col The columns used as keys.
-#' @param val_col The columns used as values, this column can contain key: value pairs.
-#'
-#' @return List of dataframe.
-#' @importFrom magrittr %>%
-#'
-#' @examples
-#' # df <- data.frame(
-#' #   A = c("a", "a", "", "", "", "f"),
-#' #   B = c("a", "b", "", "", "", "f"),
-#' #   C = c("a", "b", "c", "", "", "f"),
-#' #   D = c("a", "b", "c", "d", "", "f"),
-#' #   E = c("a", "b", "c", "d", "e", "f"),
-#' #   G = c("a", "b", "c", "d", "e", "f")
-#' # ) %>%
-#' #   t() %>%
-#' #   as.data.frame()
-#' # colnames(df) <- c("c1", "c2", "c3", "c4", "c5", "c6")
-#' # SplitDF(df = df, key_col = c("c1", "c2", "c3", "c4", "c5"), val_col = "c6")
+# Split dataframe.
 SplitDF <- function(df, key_col, val_col) {
   # check columns
   CheckColumns(df, c(key_col, val_col))

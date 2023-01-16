@@ -1,6 +1,6 @@
 Package: df2yaml
 Type: Package
-Title: Convert dataframe to YAML
+Title: Convert Dataframe to 'YAML'
 Version: 0.3.0
 Authors@R: 
     person(given = "Yabing",
@@ -8,10 +8,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "songyb0519@gmail.com")
 Maintainer: Yabing Song <songyb0519@gmail.com>
-Description: df2yaml aims to convert dataframe to YAML.
+Description: The 'df2yaml' aims to simplify the process of converting 'dataframe' to 'YAML' <https://yaml.org/>. 
+    The 'dataframe' with multiple key columns and one value column will be converted to the multi-level hierarchy.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.1.1
 Imports: 
     dplyr,
