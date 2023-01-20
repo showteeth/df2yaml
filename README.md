@@ -5,12 +5,13 @@
 
 <img src = "man/figures/df2yaml.png" align = "right" width = "200"/>
 
+[![CRAN\_RELEASE](https://www.r-pkg.org/badges/version/df2yaml?color=orange)](https://cran.r-project.org/package=df2yaml)
 [![CODE\_SIZE](https://img.shields.io/github/languages/code-size/showteeth/df2yaml.svg)](https://github.com/showteeth/df2yaml)
-[![devel\_version](https://img.shields.io/badge/devel%20version-0.2.0-blue.svg)](https://github.com/showteeth/df2yaml)
+[![devel\_version](https://img.shields.io/badge/devel%20version-0.3.0-blue.svg)](https://github.com/showteeth/df2yaml)
 
-The goal of `df2yaml` is simplify the process of converting dataframe to
-YAML. The dataframe with multiple key columns and one value column (this
-column can also contain key-value pair(s)) will be converted to
+The goal of `df2yaml` is to simplify the process of converting dataframe
+to YAML. The dataframe with multiple key columns and one value column
+(this column can also contain key-value pair(s)) will be converted to
 multi-level hierarchy.
 
 ## Installation
